@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef } from 'react'
+import React, { MutableRefObject, useRef } from 'react'
 
 import styles from './styles.module.css'
 
@@ -29,6 +29,14 @@ const Bar = () => {
         }
     }
 
+    const to = (id: number) => {
+        const element = document.getElementById(String(id))
+
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        }
+    }
+
     return (
         <div className={styles.bar}>
             <button className={styles.button} onClick={() => prev()}>
@@ -46,8 +54,8 @@ const Bar = () => {
                         return (
                             <button
                                 className={styles['product-button']}
-                                id={String(product.id)}
-                                key={product.id}>
+                                key={product.id}
+                                onClick={() => to(product.id)}>
                                 <Image
                                     src={product.src}
                                     alt={product.name}

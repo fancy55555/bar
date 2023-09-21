@@ -33,9 +33,40 @@ main {
   align-items: center;
   justify-content: center;
 
+  padding-block: 100px;
+
+  flex-direction: column;
+
   min-height: 100vh;
 }
 
 .container {
   width: min(100%, 1295px);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.cards {
+  display: inline-grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  width: 100%;
+}
+
+.scroll-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 15px;
+  cursor: pointer;
 }
